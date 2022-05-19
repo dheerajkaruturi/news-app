@@ -4,16 +4,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NewsArticleDetailsComponent } from './home-page/news-article-details/news-article-details.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
     component: HomePageComponent,
-    children: [
-      {
-        path: 'news_articleDetails/:id/:details',
-        component: NewsArticleDetailsComponent,
-      },
-    ],
+  },
+  {
+    path: 'home/news_articleDetails/:id/:details',
+    component: NewsArticleDetailsComponent,
   },
 ];
 
