@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
-import { HttpResponseType } from '../shared/httpReqType.model';
+import { HttpreqType, UsageDataInterface } from '../shared/httpReqType.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,21 +11,15 @@ import { HttpResponseType } from '../shared/httpReqType.model';
 export class HttpService implements OnInit {
   base_URL: string = `https://newsapi.org/v2/everything?q=keyword&apiKey=${environment.api_Key_news}`;
 
-  newsData: any = [];
+  newsArticlesArr!: UsageDataInterface[];
 
   constructor(private httpRes: HttpClient) {}
 
   ngOnInit() {
-    this.newsData();
+    this.newsFetching();
   }
 
-  newsFetching() {
-    return this.httpRes
-      .get<HttpResponseType>(this.base_URL)
-      .subscribe((response) => {
-        this.newsData.push(response);
-        console.log(this.newsData);
-        return this.newsData;
-      });
+  newsFetching(): Observable<HttpreqType> {
+    return this.httpRes.get<HttpreqType>(this.base_URL);
   }
 }

@@ -1,3 +1,22 @@
 img[alt] {
   font-size: 0.75rem;
 }
+img,
+svg {
+  vertical-align: middle;
+  width: 100% !important;
+  height: 15rem;
+}
+.news_display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.card-title h5 {
+  font-weight: 400;
+}
+.card-body.card-text p {
+  font-size: 0.9rem !important;
+  color: #ccc !important;
+}

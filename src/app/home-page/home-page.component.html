@@ -1,14 +1,35 @@
-<div class="container-fluid mt-3">
-  <div class="card" style="width: 25rem">
-    <img src="" class="card-img-top" alt="news_img" />
+<div class="container-fluid container-sm mt-3 news_display">
+  <p *ngIf="!newsArticleArr && !isLoading">No Content to Display</p>
+
+  <app-spinner *ngIf="isLoading"></app-spinner>
+
+  <div
+    class="card"
+    style="width: 100%"
+    *ngFor="let newsData of newsArticleArr; let i = index"
+  >
     <div class="card-body">
-      <h5 class="card-title">Heading</h5>
+      <h5 class="card-title">
+        <b
+          ><u>{{ newsData.title }}</u></b
+        >
+      </h5>
+      <p class="card-text">{{ newsData.content }}</p>
       <p class="card-text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus
-        sequi vitae quisquam placeat quo quos, qui facilis recusandae maxime.
-        Nihil?
+        <small class="text-muted">{{ newsData.author }}</small
+        >:
+        <small class="text-muted">{{ newsData.source.name }}</small>
       </p>
-      <a href="#" class="btn btn-primary">Open Article</a>
+      <div class="float-end">
+        <a
+          [routerLink]="['/home', 'news_articleDetails', i, newsData.content]"
+          class="btn btn-outline-primary"
+          (click)="getFullNews(i)"
+          type="button"
+        >
+          Open Article
+        </a>
+      </div>
     </div>
   </div>
 </div>
