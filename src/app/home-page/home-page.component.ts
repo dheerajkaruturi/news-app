@@ -20,9 +20,7 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private httpService: HttpService,
-    private newsArticleService: NewsArticleDetails_Service,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private newsArticleService: NewsArticleDetails_Service
   ) {}
 
   ngOnInit() {
@@ -45,12 +43,14 @@ export class HomePageComponent implements OnInit {
   }
 
   getFullNews(id: number) {
-    //console.log(this.newsArticleArr[id]);
+    console.log(this.newsArticleArr);
 
-    // this.router.navigate(['/home'], {
-    //   relativeTo: this.activatedRoute,
-    // });
+    this.newsArticleService.articleDetails(this.newsArticleArr);
 
-    this.newsArticleService.articleDetails(this.newsArticleArr[id]);
+    //* coverting id of type number to a string
+    let selectednews = JSON.stringify(this.newsArticleArr[id]);
+
+    //? setting the selected id inside the local storage
+    localStorage.setItem('selected_Id', selectednews);
   }
 }

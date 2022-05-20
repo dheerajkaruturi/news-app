@@ -5,12 +5,12 @@ import { UsageDataInterface } from '../shared/httpReqType.model';
   providedIn: 'root',
 })
 export class NewsArticleDetails_Service implements OnInit {
-  newsarticleDetails: UsageDataInterface[] = [];
+  newsarticleDetails!: UsageDataInterface[];
 
   ngOnInit() {}
 
-  articleDetails(newsArticle: UsageDataInterface) {
-    this.newsarticleDetails.push(newsArticle);
-    return this.newsarticleDetails;
+  articleDetails(newsArticle: UsageDataInterface[]) {
+    this.newsarticleDetails = newsArticle;
+    console.log(this.newsarticleDetails);
   }
 }

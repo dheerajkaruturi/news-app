@@ -1,0 +1,7 @@
+.curved-borders {
+  border-radius: 1rem;
+}
+.img-holder img {
+  width: -webkit-fill-available;
+  height: auto;
+}

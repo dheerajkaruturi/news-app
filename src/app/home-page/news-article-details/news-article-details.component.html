@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="d-flex justify-content-between">
-    <button class="btn btn-success">
+    <button class="btn btn-light">
       Like
       <svg
         style="margin-bottom: 4px"
@@ -16,33 +16,26 @@
         />
       </svg>
     </button>
-    <button class="btn btn-warning">← Back</button>
+    <button class="btn btn-warning" (click)="backtoHome()">← Back</button>
   </div>
   <hr />
   <div class="row">
     <div class="col-12">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim veniam,
-      quisquam accusantium sequi nobis magnam labore distinctio blanditiis illo
-      unde aliquam? Minus qui mollitia illum laboriosam aliquid ipsa placeat
-      perferendis, repudiandae neque eum dolorem dolorum aliquam deleniti quasi
-      rerum excepturi, fuga in. Consequatur laudantium at dolor excepturi
-      numquam obcaecati et reiciendis libero esse. Voluptate sunt voluptas, qui
-      voluptates repellat, minima et distinctio, accusantium quas obcaecati ab
-      dolorem minus similique molestiae id aut necessitatibus beatae iusto
-      repudiandae? Dolorum repellat earum labore provident ipsam nisi, fugit eos
-      ipsum accusantium dicta, et, debitis sequi aliquid atque! Quibusdam, quod,
-      minus repellat, nam perspiciatis libero hic dicta distinctio quae deserunt
-      sunt? Repudiandae ex vero nulla fugiat ut repellat deleniti corrupti,
-      deserunt quas magnam natus reiciendis distinctio nisi totam suscipit culpa
-      iusto neque beatae ipsum sapiente tenetur reprehenderit. Ut amet
-      accusantium ex. Nisi et ea omnis perspiciatis eum ad dignissimos a modi
-      libero animi amet, fugiat magnam! Voluptatum accusamus deserunt laboriosam
-      laborum officia perspiciatis distinctio cupiditate sapiente ex facilis
-      labore dolore, excepturi dolorem in dolorum molestiae qui inventore sint!
-      Molestiae quasi iste eaque perspiciatis, consectetur incidunt maxime
-      aperiam sed repellendus error. Perspiciatis suscipit obcaecati cumque.
-      Illum cupiditate tempora adipisci odit dolorum? Distinctio obcaecati
-      ratione reiciendis dolor.
+      <div class="card-body bg-white curved-borders">
+        <p>{{ newsDetailsHolder.content }}</p>
+        <div class="img-fluid img-holder">
+          <img src="{{ newsDetailsHolder.urlToImage }}" alt="news_img" />
+        </div>
+        <div class="news-info mt-3 d-flex justify-content-between">
+          <p class="text-muted">
+            For more information:
+            <a href="{{ newsDetailsHolder.url }}" target="_blank"
+              >Click Here!</a
+            >
+          </p>
+          <p class="text-muted">Source: {{ newsDetailsHolder.source.name }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

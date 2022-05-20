@@ -14,7 +14,7 @@
           ><u>{{ newsData.title }}</u></b
         >
       </h5>
-      <p class="card-text">{{ newsData.content }}</p>
+      <p class="card-text">{{ newsData.description }}</p>
       <p class="card-text">
         <small class="text-muted">{{ newsData.author }}</small
         >:
@@ -22,7 +22,7 @@
       </p>
       <div class="float-end">
         <a
-          [routerLink]="['/home', 'news_articleDetails', i, newsData.content]"
+          [routerLink]="['/home', 'news_articleDetails', i]"
           class="btn btn-outline-primary"
           (click)="getFullNews(i)"
           type="button"
