@@ -1,0 +1,10 @@
+.input-container {
+  border: 1px solid #7e7e7e61;
+  padding: 0.25rem;
+}
+.input-container input {
+  height: 1.85rem;
+  width: 90%;
+  border: none;
+  outline: none;
+}

@@ -10,6 +10,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoadingSpinner } from './loading-spinner/loading.component';
 import { NewsArticleDetailsComponent } from './home-page/news-article-details/news-article-details.component';
+import { SignInFormComponent } from './login-page/sign-in-form/sign-in-form.component';
+import { SignUpFormComponent } from './login-page/sign-up-form/sign-up-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { NewsArticleDetailsComponent } from './home-page/news-article-details/ne
     NavigationComponent,
     LoadingSpinner,
     NewsArticleDetailsComponent,
+    SignInFormComponent,
+    SignUpFormComponent,
   ],
   imports: [
     BrowserModule,
