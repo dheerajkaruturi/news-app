@@ -12,6 +12,8 @@ import { LoadingSpinner } from './loading-spinner/loading.component';
 import { NewsArticleDetailsComponent } from './home-page/news-article-details/news-article-details.component';
 import { SignInFormComponent } from './login-page/sign-in-form/sign-in-form.component';
 import { SignUpFormComponent } from './login-page/sign-up-form/sign-up-form.component';
+import { PricingPlansComponent } from './pricing-plans/pricing-plans.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { SignUpFormComponent } from './login-page/sign-up-form/sign-up-form.comp
     NewsArticleDetailsComponent,
     SignInFormComponent,
     SignUpFormComponent,
+    PricingPlansComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
