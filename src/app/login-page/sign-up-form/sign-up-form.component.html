@@ -1,7 +1,9 @@
-<div
-  class="container d-flex justify-content-center"
-  style="height: 100%; margin-top: 10rem"
->
+<div class="container text-center mt-5">
+  <h2 class="text-uppercase text-decoration-underline">
+    Sign Up and get started today
+  </h2>
+</div>
+<div class="container d-flex justify-content-center" style="margin-top: 3rem">
   <div class="card" style="width: 40rem">
     <div class="card-body">
       <div class="row">
@@ -15,6 +17,7 @@
                 id="createUsername"
                 minlength="4"
                 maxlength="10"
+                formControlName="createUsername"
                 required
               />
               <span
@@ -29,13 +32,13 @@
               <span
                 class="text-danger"
                 style="font-size: 1rem"
-                *ngIf="fsignUp.createUsername.errors?.['minlength']"
+                *ngIf="fsignUp.createUsername.dirty && fsignUp.createUsername.errors?.['minlength']"
                 >Minimum of 4 characters</span
               >
               <span
                 class="test-danger"
                 style="font-size: 1rem"
-                *ngIf="fsignUp.createUsername.errors?.['maxlength']"
+                *ngIf="fsignUp.createUsername.dirty && fsignUp.createUsername.errors?.['maxlength']"
                 >Maximum of 10 characters</span
               >
             </div>
@@ -45,8 +48,9 @@
                 <input
                   [type]="showPassword ? 'text' : 'password'"
                   id="password"
-                  minlength="10"
-                  maxlength="6"
+                  minlength="6"
+                  maxlength="10"
+                  formControlName="password"
                   required
                 />
                 <button
@@ -57,6 +61,24 @@
                   {{ showPassword ? "Show" : "Hide" }}
                 </button>
               </div>
+              <span
+                class="text-danger"
+                style="font-size: 1rem"
+                *ngIf="!fsignUp.password.valid && fsignUp.password.touched"
+                >Password is required!</span
+              >
+              <span
+                class="text-danger"
+                style="font-size: 1rem"
+                *ngIf="fsignUp.password.dirty && fsignUp.password.errors?.['minlength']"
+                >Minimum of 6 charaters</span
+              >
+              <span
+                class="text-danger"
+                style="font-size: 1rem"
+                *ngIf="fsignUp.password.dirty && fsignUp.password.errors?.['maxlength']"
+                >Maximum of 10 characters</span
+              >
             </div>
 
             <!-- <div class="form-group mt-2">
