@@ -3,43 +3,43 @@
     Sign Up and get started today
   </h2>
 </div>
-<div class="container d-flex justify-content-center" style="margin-top: 3rem">
+<div class="mt-5" *ngIf="errorStatus">
+  <div class="row">
+    <div class="col-6 m-auto">
+      <div class="alert alert-danger d-flex justify-content-between">
+        <p class="text-center m-auto fw-bold">
+          We find an error in creating the user as "{{ errorMsg }}"
+        </p>
+        <button
+          type="button"
+          class="btn-close float-end"
+          aria-label="Close"
+          (click)="closeAlert()"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container d-flex justify-content-center" style="margin-top: 2rem">
   <div class="card" style="width: 40rem">
     <div class="card-body">
       <div class="row">
         <div class="col-12">
           <form [formGroup]="signUpForm" (ngSubmit)="onSubmit_signUpForm()">
             <div class="form-group">
-              <label for="createUsername">Create Username</label>
+              <label for="email">Email</label>
               <input
                 class="form-control"
-                type="text"
-                id="createUsername"
-                minlength="4"
-                maxlength="10"
-                formControlName="createUsername"
+                type="email"
+                id="email"
+                formControlName="email"
                 required
               />
               <span
                 class="text-danger"
                 style="font-size: 1rem"
-                *ngIf="
-                  !fsignUp.createUsername.valid &&
-                  fsignUp.createUsername.touched
-                "
-                >Username is required!</span
-              >
-              <span
-                class="text-danger"
-                style="font-size: 1rem"
-                *ngIf="fsignUp.createUsername.dirty && fsignUp.createUsername.errors?.['minlength']"
-                >Minimum of 4 characters</span
-              >
-              <span
-                class="test-danger"
-                style="font-size: 1rem"
-                *ngIf="fsignUp.createUsername.dirty && fsignUp.createUsername.errors?.['maxlength']"
-                >Maximum of 10 characters</span
+                *ngIf="!fsignUp.email.valid && fsignUp.email.touched"
+                >Email is required!</span
               >
             </div>
             <div class="form-group mt-2">
@@ -93,10 +93,18 @@
               >
                 Back
               </button>
+              <button *ngIf="isCreating" class="btn btn-success" type="button">
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Creating User...
+              </button>
               <button
+                *ngIf="!isCreating"
                 class="btn btn-outline-success"
                 type="submit"
-                (click)="onSubmit_signUpForm()"
               >
                 Create User
               </button>
