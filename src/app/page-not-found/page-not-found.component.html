@@ -1,1 +1,22 @@
-<p>page-not-found works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+      <img
+        class="not_found-svg img-responsive"
+        src="{{ svgPath }}"
+        alt="page-not-found"
+      />
+    </div>
+    <div
+      class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex flex-column justify-content-center"
+    >
+      <h1 class="page-head">{{ "Page Not Found" | uppercase }}</h1>
+      <button
+        class="btn btn-primary"
+        [routerLink]="['/home']"
+      >
+        Go to Home
+      </button>
+    </div>
+  </div>
+</div>

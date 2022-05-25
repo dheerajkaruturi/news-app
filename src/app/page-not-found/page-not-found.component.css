@@ -1,0 +1,24 @@
+.not_found-svg {
+  width: -webkit-fill-available;
+  height: 30rem;
+}
+.page-head {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  letter-spacing: 1px;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2rem;
+}
+.page-head::after {
+  content: "We dont find the path you want to access";
+  display: block;
+  text-decoration: none !important;
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 2rem;
+  background-color: #f05050;
+  border-radius: 10px;
+  padding: 5px 6px;
+}

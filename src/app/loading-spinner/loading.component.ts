@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
       .sk-chase {
         width: 60px;
         height: 60px;
-        margin-top: 20rem;
+        margin-top: 12rem;
         position: relative;
         animation: sk-chase 2.5s infinite linear both;
       }
